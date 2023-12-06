@@ -3,14 +3,14 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/Kovensky/go-ed2k"
 	"io"
-	"io/ioutil"
 	"os"
 	"regexp"
 	"runtime"
 	"strconv"
 	"strings"
+
+	"github.com/Jessidhia/go-ed2k"
 )
 
 var useNullChunk = flag.Bool("null-chunk", false,
@@ -128,7 +128,7 @@ func main() {
 				}
 				defer fh.Close()
 			}
-			digest, err := ioutil.ReadAll(fh)
+			digest, err := io.ReadAll(fh)
 			if err != nil {
 				fmt.Fprintln(os.Stderr, err)
 			} else {
